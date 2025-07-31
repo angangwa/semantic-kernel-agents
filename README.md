@@ -2,6 +2,12 @@
 
 This is a demonstration of a multi-agent AI system for Contoso customer support, showcasing agent orchestration patterns. **This is a demo for educational purposes only.**
 
+
+
+https://github.com/user-attachments/assets/713f2791-57ca-44f4-ab1a-9243b4472a94
+
+
+
 ## 🚀 Quick Start
 
 ### Prerequisites
