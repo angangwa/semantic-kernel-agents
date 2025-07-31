@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoso AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Data URI favicon with letter C for Contoso -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230078D4'/><text x='50' y='70' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Segoe UI, sans-serif'>C</text></svg>">
+    <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230078D4'/><text x='50' y='70' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Segoe UI, sans-serif'>C</text></svg>">
+    <!-- Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="text-logo">
+                    <span class="logo-text">CONTOSO</span>
+                    <span class="logo-tagline">Communications</span>
+                </div>
+                <div class="header-text">
+                    <h1>AI Assistant</h1>
+                    <div class="agent-indicator" id="agent-indicator">
+                        <span class="agent-name" id="agent-name">Alex</span>
+                        <span class="agent-status" id="agent-status">Ready</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="architecture-button" id="architecture-button" title="Learn about demo architecture">
+                        📖 Architecture
+                    </button>
+                    <button class="reset-button" id="reset-button" title="Clear chat and start over">
+                        🔄 Reset
+                    </button>
+                    <div class="connection-status" id="connection-status">
+                        <span class="status-dot" id="status-dot"></span>
+                        <span id="connection-text">Connecting...</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <main class="chat-container">
+            <div class="messages" id="messages">
+                <div class="welcome-message">
+                    <div class="agent-avatar alex"></div>
+                    <div class="message-content">
+                        <div class="message-header">
+                            <span class="agent-name">Alex</span>
+                            <span class="timestamp">Just now</span>
+                        </div>
+                        <div class="message-text">
+                            Hello! I'm Alex, your Contoso AI assistant. I can help you with billing inquiries, plan information, roaming options, and connect you with human support when needed.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversation Starters -->
+            <div class="conversation-starters" id="conversation-starters">
+                <h3>Quick Start Options:</h3>
+                <button class="starter-button" data-message="Why is my bill so high this month?">
+                    📊 Explain my high bill
+                </button>
+                <button class="starter-button" data-message="What roaming plans do you have for Europe?">
+                    🌍 European roaming plans
+                </button>
+                <button class="starter-button" data-message="Show me my current plan details">
+                    📋 My current plan
+                </button>
+                <button class="starter-button" data-message="I need to speak with a human agent">
+                    👤 Speak to human
+                </button>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div class="loading-indicator" id="loading-indicator" style="display: none;">
+                <div class="agent-avatar" id="loading-avatar"></div>
+                <div class="loading-content">
+                    <div class="loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="loading-text" id="loading-text">Agent is working...</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="input-area">
+            <div class="input-container">
+                <input type="text" id="message-input" placeholder="Type your message..." disabled>
+                <button id="send-button" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M2 21L23 12L2 3L2 10L17 12L2 14L2 21Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- File Preview Modal -->
+    <div class="modal" id="file-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">File Preview</h3>
+                <button class="close-button" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- File content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="download-button" id="download-button">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Architecture Documentation Modal -->
+    <div class="modal" id="architecture-modal" style="display: none;">
+        <div class="modal-content architecture-modal-content">
+            <div class="modal-header">
+                <h3>Demo Architecture Documentation</h3>
+                <button class="close-button" id="close-architecture-modal">&times;</button>
+            </div>
+            <div class="modal-body architecture-modal-body" id="architecture-modal-body">
+                <div class="loading-spinner" id="architecture-loading">Loading documentation...</div>
+                <!-- Architecture content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
