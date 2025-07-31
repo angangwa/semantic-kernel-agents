@@ -93,8 +93,7 @@ class BillingTools:
                 fontsize=14, fontweight='bold', 
                 color=contoso_blue, alpha=0.8,
                 ha='right', va='top', 
-                transform=fig.transFigure,
-                fontfamily='Segoe UI')
+                transform=fig.transFigure)
         
         # Adjust layout to prevent label cutoff
         plt.tight_layout()
